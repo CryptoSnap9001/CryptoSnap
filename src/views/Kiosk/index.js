@@ -14,8 +14,8 @@ class Kiosk extends Component {
             <Switch>
                 <Route exact path='/' component={ KioskComponent } />
                 <Route path={ `/info/:user_id` } component={ InfoComponent } />
-                <Route path={ `/receipt/:user_id/:amount`} component={ ReceiptComponent } />
                 <Route path={ `/transaction/:user_id/:amount`} component={ TransactionComponent } />
+                <Route path={ `/receipt/:user_id/:amount`} component={ ReceiptComponent } />
             </Switch>
         </Router>
         )

@@ -1,0 +1,130 @@
+#receipt h1 {
+    text-align: center;
+    margin: 0px;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2ad4ff;
+    color: #fff;
+    font-size: 3em;
+}
+
+.circle-loader {
+    margin: 3.5em auto 1em;
+    border: 4px solid rgba(85, 84, 84, 0.2);
+    border-left-color: #5cb85c;
+    animation: loader-spin 1.2s infinite linear;
+    position: relative;
+    display: block;
+    vertical-align: top;
+    border-radius: 50%;
+    width: 7em;
+    height: 7em;
+}
+
+.load-complete, .load-failed {
+    -webkit-animation: none;
+    animation: none;
+    transition: border 500ms ease-out;
+}
+
+.load-complete {
+    border-color: #5cb85c;
+}
+
+.circle-loader.load-failed {
+    border-color: #f13c3c;
+}
+.circle-loader.load-failed .checkmark::after{
+    border-right: 3px solid #f13c3c;
+    border-top: 3px solid #f13c3c;
+}
+
+.checkmark {
+    display: none;
+}
+.load-complete .checkmark {
+    display: block;
+}
+
+.load-failed .checkmark {
+    display: none;
+}
+.load-failed .x-mark {
+    display: flex;
+}
+
+.checkmark.draw:after {
+    animation-duration: 800ms;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg);
+}
+.checkmark:after {
+    opacity: 1;
+    height: 3.5em;
+    width: 1.75em;
+    transform-origin: left top;
+    border-right: 3px solid #5cb85c;
+    border-top: 3px solid #5cb85c;
+    content: '';
+    left: 1.75em;
+    top: 3.5em;
+    position: absolute;
+}
+
+@keyframes loader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes checkmark {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
+    20% {
+        height: 0;
+        width: 1.75em;
+        opacity: 1;
+    }
+    40% {
+        height: 3.5em;
+        width: 1.75em;
+        opacity: 1;
+    }
+    100% {
+        height: 3.5em;
+        width: 1.75em;
+        opacity: 1;
+    }
+}
+
+.x-mark {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5em;
+    font-family: monospace;
+    color: #f13c3c;
+    animation: loader-spin .5s 1 linear;
+    display: none;
+}
+
+p.message {
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.8em;
+    color: #5cb85c;
+}
+
+.load-failed + p.message {
+    color: #f13c3c;
+}
