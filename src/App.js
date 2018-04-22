@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
 import logo from './assets/snap-no-lines.svg'
 import {connect} from 'react-redux'
-import {login} from './store/auth'
+import {login, fetchUser} from './store/auth'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './App.css';
-import {GovAdmin, Beneficiary, StoreEmployee} from './views/index'
+import firebase from './firebase'
+import {GovAdmin, Beneficiary, Kiosk} from './views/index'
 
 class App extends Component {
   state = {
     email: '',
     password: ''
+  }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.fetchUser(user)
+      }
+    })
   }
   render() {
     const {user} = this.props
@@ -22,8 +30,9 @@ class App extends Component {
       } else if (user.type == 20) {
         return <Beneficiary />
       } else if (user.type == 30) {
-        return <StoreEmployee />
+        return <Kiosk />
       } else {
+        alert(JSON.stringify(user)) 
         return <div>Invalid</div>
       }
     }
@@ -67,5 +76,6 @@ const mapStateToProps = ({auth}) => {
 }
 
 export default connect(mapStateToProps, {
-  login
+  login,
+  fetchUser
 })(App)

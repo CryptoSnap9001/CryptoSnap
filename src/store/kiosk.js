@@ -1,36 +1,29 @@
 import firebase from '../firebase'
 const db = firebase.database()
 
-const SET_USER = 'SET_USER'
+const SET_USER = 'SET_USER_KIOSK'
 
 const INITIAL_STATE = {
   user: null
 }
 
-export function fetchUser(user) {
+export function fetchUser(userid) {
   return dispatch => {
-    db.ref(`users/${user.uid}`).once('value').then(snapshot => {
+    db.ref(`users/${userid}`).once('value').then(snapshot => {
       const theUser = snapshot.val()
       dispatch({
         type: SET_USER,
         payload: {
           ...theUser,
-          uid: user.uid
+          uid: userid
         }
       })
     }).catch(err => {
-      alert('Invalid login')
+      alert('Invalide kiosk'+err)
     })
   }
 }
 
-export function login(email, password) {
-  return dispatch => {
-    firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
-      dispatch(fetchUser(user))
-    })
-  }
-}
 
 export default function (state=INITIAL_STATE, action) {
   switch (action.type) {
