@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './App.css';
-import {GovAdmin, Beneficiary, StoreEmployee} from './views/index'
+import {GovAdmin, Beneficiary, Kiosk} from './views/index'
 
 class App extends Component {
   state = {
@@ -22,7 +22,7 @@ class App extends Component {
       } else if (user.type == 20) {
         return <Beneficiary />
       } else if (user.type == 30) {
-        return <StoreEmployee />
+        return <Kiosk />
       } else {
         return <div>Invalid</div>
       }
