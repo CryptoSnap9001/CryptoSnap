@@ -7,12 +7,19 @@ const INITIAL_STATE = {
   user: null
 }
 
-function login(email, password) {
+export function login(email, password) {
   return dispatch => {
     firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
+
       db.ref(`users/${user.uid}`).once('value').then(snapshot => {
         const theUser = snapshot.val()
-        dispatch({type: SET_USER, payload: theUser})
+        dispatch({
+          type: SET_USER,
+          payload: {
+            ...theUser,
+            uid: user.uid
+          }
+        })
         // const {type} = theUser
         // type 10 = government
         // type 20 = beneficiary
@@ -27,6 +34,8 @@ function login(email, password) {
 export default function (state=INITIAL_STATE, action) {
   switch (action.type) {
     case SET_USER:
-      return { ...state, user: action.password }
+      return { ...state, user: action.payload }
+    default:
+      return state
   }
 }

@@ -1,9 +1,15 @@
 import { createStore, compose, applyMiddleware } from 'redux'
-import cryptoSnapApp9001 from './reducers'
 import ThunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
-const store = createStore(cryptoSnapApp9001, compose(
+import { combineReducers } from 'redux'
+import auth from './store/auth'
+
+const rootReducer = combineReducers({
+  auth
+})
+
+const store = createStore(rootReducer, compose(
   applyMiddleware( ThunkMiddleware ),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
