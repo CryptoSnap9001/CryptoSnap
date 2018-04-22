@@ -27,14 +27,14 @@ class GovAdmin extends Component {
       case "default":
         return <h2>Default view</h2>;
       case "addUser":
-        return <GovernmentAddUser setView={this.setView} />;
+        return <GovAddUser setView={this.setView} />;
       case "approveCart":
         return <h2>ApproveCart</h2>;
       case "lookupUser":
         return <h2>Lookup User</h2>;
       case "addRetailer":
         return (
-          <GovernmentAddRetailer setView={this.setView} />
+          <GovAddRetailer setView={this.setView} />
         )
     }
   }
@@ -43,7 +43,7 @@ class GovAdmin extends Component {
     return (
       <div className="Government-Main">
         <h2>Gov main!</h2>
-        <GovernmentSelectView setView={this.setView} />
+        <GovSelectView setView={this.setView} />
         <div>{this.selectComponents()}</div>
       </div>
     );
