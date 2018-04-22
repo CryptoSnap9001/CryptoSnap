@@ -41,11 +41,10 @@ componentWillUnmount() {
 
   render() {
     return (
-      <div>
-        <h1>StoreEmployee Account!!!</h1>
+      <div id="kiosk">
+        <h1>CryptoSNAP Store Kiosk</h1>
         <div id="interactive" className="viewport"/>
         <p>{this.state.scanResult}</p>
-
       </div>
     )
   }
