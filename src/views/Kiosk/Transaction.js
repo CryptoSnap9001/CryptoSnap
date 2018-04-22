@@ -21,8 +21,9 @@ class Transaction extends Component {
             return <Redirect to={`/receipt/${user_id}/${amount}`} />
         }
         return (
-            <MuiThemeProvider>
-                <h5>Transaction</h5>
+            <MuiThemeProvider id="transaction">
+                <h1 className="header">Receipt</h1>
+                <p className="warning">Please take a photo of your receipt for verification</p>
                 <Webcam
                     audio={false}
                     screenshotFormat="image/png"
@@ -30,26 +31,28 @@ class Transaction extends Component {
                         this.cameraRef = cameraRef
                     }}
                 />
-                <RaisedButton
-                    primary
-                    disabled={this.state.uploading}
-                    label="Save Receipt"
-                    onClick={() => {
-                        var contentType = 'image/png'
+                <div className="back-to-kiosk">
+                    <RaisedButton
+                        primary
+                        disabled={this.state.uploading}
+                        label="Save Receipt"
+                        onClick={() => {
+                            var contentType = 'image/png'
 
-                        this.setState({uploading: true})
-                        const imageSrc = this.cameraRef.getScreenshot()
-                        let thePath = getRandomNumber() + '.png'
-                        var storageRef = firebase.storage().ref(`receipts/${thePath}`)
-                        storageRef.putString(imageSrc, 'data_url').then(snapshot => {
-                            this.props.setReceiptURL(snapshot.downloadURL)
-                            this.setState({uploading: false, finished: true})
-                        }).catch(err => {
-                            alert('An error occurred while uploading: ' + err)
-                            this.setState({uploading: false})
-                        })
-                    }}
-                />
+                            this.setState({uploading: true})
+                            const imageSrc = this.cameraRef.getScreenshot()
+                            let thePath = getRandomNumber() + '.png'
+                            var storageRef = firebase.storage().ref(`receipts/${thePath}`)
+                            storageRef.putString(imageSrc, 'data_url').then(snapshot => {
+                                this.props.setReceiptURL(snapshot.downloadURL)
+                                this.setState({uploading: false, finished: true})
+                            }).catch(err => {
+                                alert('An error occurred while uploading: ' + err)
+                                this.setState({uploading: false})
+                            })
+                        }}
+                    />
+                </div>
           </MuiThemeProvider>
         )
     }

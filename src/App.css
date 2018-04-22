@@ -11,3 +11,26 @@
   display: block !important;
   margin: 0 auto;
 }
+
+h1.header {
+  text-align: center;
+  margin: 0px;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2ad4ff;
+  color: #fff;
+  font-size: 3em;
+}
+
+p.warning {
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+video {
+  max-width: 100%;
+  object-fit: cover;
+}

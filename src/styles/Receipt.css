@@ -1,15 +1,3 @@
-#receipt h1 {
-    text-align: center;
-    margin: 0px;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #2ad4ff;
-    color: #fff;
-    font-size: 3em;
-}
-
 .circle-loader {
     margin: 3.5em auto 1em;
     border: 4px solid rgba(85, 84, 84, 0.2);
@@ -127,4 +115,19 @@ p.message {
 
 .load-failed + p.message {
     color: #f13c3c;
+}
+
+.back-to-kiosk {
+    text-align: center;
+}
+
+#receipt h2 {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5%;
+}
+
+img.receipt {
+    margin: 0 auto;
+    display: block;
 }
