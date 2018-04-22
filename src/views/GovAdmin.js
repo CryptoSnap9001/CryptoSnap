@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import GovAddUser from "./GovAddUser";
 import GovAddRetailer from "./GovAddRetailer";
 import GovSelectView from "./GovSelectView";
+import BeneficiaryList from './BeneficiaryList'
 
 class GovAdmin extends Component {
   constructor(props) {
@@ -25,13 +26,13 @@ class GovAdmin extends Component {
   selectComponents() {
     switch (this.state.view) {
       case "default":
-        return <h2>Default view</h2>;
+        return <h4>Default view</h4>;
       case "addUser":
         return <GovAddUser setView={this.setView} />;
       case "approveCart":
         return <h2>ApproveCart</h2>;
       case "lookupUser":
-        return <h2>Lookup User</h2>;
+        return <BeneficiaryList setView={this.setView} />;
       case "addRetailer":
         return (
           <GovAddRetailer setView={this.setView} />

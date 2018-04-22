@@ -27,7 +27,7 @@ class GovAddRetailer extends Component {
   render() {
     return (
       <div className="Government-Add-Retailer">
-        <h4>Add new beneficiary</h4>
+        <h4>Add new retailer</h4>
         <form onSubmit={this.onSubmit}>
           <label>
             Name:

@@ -37,7 +37,7 @@ class BeneficiaryList extends Component {
     const membersList = this.state.members;
     return (
       <div>
-        <h1>SNAP Beneficiaries</h1>
+        <h4>SNAP Beneficiaries</h4>
         <ol>
           {membersList.length &&
             membersList.map(member => {
