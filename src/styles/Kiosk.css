@@ -1,0 +1,30 @@
+#kiosk h1 {
+    text-align: center;
+    margin: 0px;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2ad4ff;
+    color: #fff;
+    font-size: 3em;
+}
+
+#kiosk div#interactive {
+    position: relative;
+    height: 78.3vh;
+}
+
+#kiosk video, #kiosk canvas.drawingBuffer {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: initial;
+    object-fit: initial;
+    z-index: 1;
+}
+
+#kiosk canvas.drawingBuffer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
