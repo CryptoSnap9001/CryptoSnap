@@ -7,26 +7,27 @@ const INITIAL_STATE = {
   user: null
 }
 
+export function fetchUser(user) {
+  return dispatch => {
+    db.ref(`users/${user.uid}`).once('value').then(snapshot => {
+      const theUser = snapshot.val()
+      dispatch({
+        type: SET_USER,
+        payload: {
+          ...theUser,
+          uid: user.uid
+        }
+      })
+    }).catch(err => {
+      alert('Invalid login')
+    })
+  }
+}
+
 export function login(email, password) {
   return dispatch => {
     firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
-
-      db.ref(`users/${user.uid}`).once('value').then(snapshot => {
-        const theUser = snapshot.val()
-        dispatch({
-          type: SET_USER,
-          payload: {
-            ...theUser,
-            uid: user.uid
-          }
-        })
-        // const {type} = theUser
-        // type 10 = government
-        // type 20 = beneficiary
-        // type 30 = store employee
-      }).catch(err => {
-        alert('Invalid login')
-      })
+      dispatch(fetchUser(user))
     })
   }
 }
