@@ -23,10 +23,10 @@ class Beneficiary extends Component {
   render() {
     return (
       <div id="benificiary">
-        <h1>Beneficiary Account!!!</h1>
-        <p>Balance:{this.state.balance}</p>
-        <QRCode value={this.props.user.uid} size={256} />,
-
+        <h1>${parseFloat(this.state.balance).toLocaleString()}</h1>
+        <div className="flex">
+          <QRCode value={this.props.user.uid} size={256} />
+        </div>
       </div>
     )
   }

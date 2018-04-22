@@ -3,3 +3,22 @@
     margin: 0 auto;
     max-width: 95% !important;
 }
+
+#benificiary h1 {
+    text-align: center;
+    margin: 0px;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2ad4ff;
+    color: #fff;
+    font-size: 3em;
+}
+
+#benificiary .flex {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
