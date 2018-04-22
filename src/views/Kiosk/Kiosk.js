@@ -3,11 +3,15 @@ import { Redirect } from 'react-router-dom';
 import QrReader from 'react-qr-reader';
 // import {connect} from 'react-redux';
 import '../../styles/Kiosk.css';
+import { fetchUser} from '../../store/kiosk'
+import {connect} from 'react-redux'
+
 
 class Kiosk extends Component {
     // initial state
     state = {
-        scanResult : ""
+        scanResult : "",
+        bio:""
     }
     // handle the scanning
     handleScan = (data) => {
@@ -15,6 +19,8 @@ class Kiosk extends Component {
             this.setState({
                 scanResult: data,
             })
+            this.props.fetchUser(this.state.scanResult)
+
         }
     }
     // handle any errors
@@ -39,5 +45,12 @@ class Kiosk extends Component {
         )
     }
 }
+const mapStateToProps = ({kiosk}) => {
+    const {user} = kiosk
+    return {user}
+  }
 
-export default Kiosk
+
+  export default connect(mapStateToProps, {
+    fetchUser
+  })(Kiosk)
