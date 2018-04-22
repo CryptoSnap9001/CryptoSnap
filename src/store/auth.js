@@ -17,9 +17,9 @@ export function fetchUser(user) {
           ...theUser,
           uid: user.uid
         }
-      }).catch(err => {
-        alert('Invalid login')
       })
+    }).catch(err => {
+      alert('Invalid login')
     })
   }
 }
