@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import logo from './assets/snap-no-lines.svg'
 import {connect} from 'react-redux'
 import {login} from './store/auth'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -29,27 +29,31 @@ class App extends Component {
     }
     return (
       <MuiThemeProvider>
-        <div className="App">
+        <div className="App homepage">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to Cryptosnap-9001!</h1>
-            <TextField
-              value={this.state.email}
-              floatingLabelText="Email Address"
-              onChange={(evt, email) => this.setState({email})}
-            />
-            <TextField
-              value={this.state.password}
-              floatingLabelText="Password"
-              onChange={(evt, password) => this.setState({password})}
-            />
-            <RaisedButton
-              primary
-              label="Log In"
-              onClick={() => {
-                const {email, password} = this.state
-                this.props.login(email, password)
-              }} />
+            <div className="login-form">
+              <TextField
+                className="email"
+                value={this.state.email}
+                floatingLabelText="Email Address"
+                onChange={(evt, email) => this.setState({email})}
+              />
+              <TextField
+                className="password"
+                value={this.state.password}
+                floatingLabelText="Password"
+                onChange={(evt, password) => this.setState({password})}
+              />
+              <RaisedButton
+                primary
+                label="Log In"
+                onClick={() => {
+                  const {email, password} = this.state
+                  this.props.login(email, password)
+                }} />
+            </div>
           </header>
         </div>
       </MuiThemeProvider>
