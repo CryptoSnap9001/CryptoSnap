@@ -34,3 +34,47 @@ video {
   max-width: 100%;
   object-fit: cover;
 }
+
+/* Goverment Dashboard Styles */
+.Government-Select-View {
+  display: flex;
+}
+.Government-Select-View button {
+  flex-grow: 1;
+  background: #fff;
+  border: none;
+  padding: 15px;
+  border: 1px solid;
+}
+
+.Government-Main h4 {
+  text-align: center;
+  font-family: monospace;
+  font-size: 2em;
+  border-bottom: 1px solid #ccc;
+}
+
+.Government-Main label {
+  display: inline-block;
+  width: 31%;
+  text-align: center;
+  padding: 1%;
+  font-size: 1.2em;
+}
+
+.Government-Main input[type="submit"] {
+  display: block;
+  margin: 2% auto;
+  background: none;
+  border: none;
+  font-size: 2em;
+  border: 1px solid;
+  padding: 1% 2%;
+  border-radius: 15px;
+}
+
+.Government-Main input[type="submit"]:hover {
+  background: #ccc;
+  font-size: 1.8em;
+  cursor: pointer;
+}

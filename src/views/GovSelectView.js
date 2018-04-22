@@ -19,7 +19,6 @@ class GovSelectView extends Component {
     return (
       <div className="Government-Select-View">
         <button name='addUser' onClick={this.onClick}>Add User</button>
-        <button name='approveCart' onClick={this.onClick}>Approve Cart</button>
         <button name='lookupUser' onClick={this.onClick}>
           Lookup User Information
         </button>

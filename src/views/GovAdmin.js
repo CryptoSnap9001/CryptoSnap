@@ -29,8 +29,6 @@ class GovAdmin extends Component {
         return <h4>Default view</h4>;
       case "addUser":
         return <GovAddUser setView={this.setView} />;
-      case "approveCart":
-        return <h2>ApproveCart</h2>;
       case "lookupUser":
         return <BeneficiaryList setView={this.setView} />;
       case "addRetailer":
@@ -43,7 +41,7 @@ class GovAdmin extends Component {
   render() {
     return (
       <div className="Government-Main">
-        <h2>Government dashboard</h2>
+        <h1 className="header">Dashboard</h1>
         <GovSelectView setView={this.setView} />
         <div>{this.selectComponents()}</div>
       </div>
