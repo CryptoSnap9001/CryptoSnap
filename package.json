@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "firebase": "^4.13.1",
     "material-ui": "^0.20.0",
     "qrcode.react": "^0.8.0",

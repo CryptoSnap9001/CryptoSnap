@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import GovAddUser from "./GovAddUser";
 import GovAddRetailer from "./GovAddRetailer";
 import GovSelectView from "./GovSelectView";
-import BeneficiaryList from './BeneficiaryList'
+import BeneficiaryList from './BeneficiaryList';
 
 class GovAdmin extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class GovAdmin extends Component {
   render() {
     return (
       <div className="Government-Main">
-        <h2>Gov main!</h2>
+        <h2>Government dashboard</h2>
         <GovSelectView setView={this.setView} />
         <div>{this.selectComponents()}</div>
       </div>
