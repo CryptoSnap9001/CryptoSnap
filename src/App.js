@@ -32,6 +32,7 @@ class App extends Component {
       } else if (user.type == 30) {
         return <Kiosk />
       } else {
+        alert(JSON.stringify(user)) 
         return <div>Invalid</div>
       }
     }
