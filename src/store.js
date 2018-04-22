@@ -6,11 +6,13 @@ import { combineReducers } from 'redux'
 import auth from './store/auth'
 import kiosk from './store/kiosk'
 import user_balances from './store/user_balances'
+import transactions from './store/transactions'
 
 const rootReducer = combineReducers({
   auth,
   kiosk,
-  user_balances
+  user_balances,
+  transactions
 })
 
 const store = createStore(rootReducer, compose(

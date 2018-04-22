@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import GovAddUser from "./GovAddUser";
 import GovAddRetailer from "./GovAddRetailer";
+import GovShowTransactions from './GovShowTransactions';
 import GovSelectView from "./GovSelectView";
 import BeneficiaryList from './BeneficiaryList';
 
@@ -29,6 +30,8 @@ class GovAdmin extends Component {
         return <h4>Default view</h4>;
       case "addUser":
         return <GovAddUser setView={this.setView} />;
+      // case "showTransactions":
+      //   return <GovShowTransactions setView={this.setView} />;
       case "lookupUser":
         return <BeneficiaryList setView={this.setView} />;
       case "addRetailer":

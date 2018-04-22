@@ -19,7 +19,8 @@ class Receipt extends Component {
         const postData = {
             from: this.props.match.params.user_id, 
             to: curret_user_id, 
-            amount: this.props.match.params.amount
+            amount: this.props.match.params.amount,
+            receipt_url: this.props.receipt_url
         };
         fetch( "https://us-central1-cryptosnap-9001.cloudfunctions.net/transaction", {
             body: JSON.stringify(postData),
