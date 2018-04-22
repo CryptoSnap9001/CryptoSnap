@@ -24,13 +24,9 @@ class Beneficiary extends Component {
     return (
       <div id="benificiary">
         <h1>Beneficiary Account!!!</h1>
-<<<<<<< HEAD
-        <QRCode value={this.props.user.uid} size={256} />
-=======
         <p>Balance:{this.state.balance}</p>
-        <QRCode value={this.props.user.uid} />,
+        <QRCode value={this.props.user.uid} size={256} />,
 
->>>>>>> 60d55d784247bdf74788d49ebad984d0baf5d878
       </div>
     )
   }
