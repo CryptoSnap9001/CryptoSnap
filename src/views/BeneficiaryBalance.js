@@ -16,6 +16,7 @@ class BeneficiaryBalance extends Component {
 
   getBalance = () => {
     const userId = this.props.user_id;
+    console.log('making request with user id ' + userId)
     axios
       .post("https://us-central1-cryptosnap-9001.cloudfunctions.net/balance", {
         user_id: userId
