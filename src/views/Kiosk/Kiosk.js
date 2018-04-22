@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom';
 import QrReader from 'react-qr-reader';
 // import {connect} from 'react-redux';
-import '../styles/Kiosk.css';
+import '../../styles/Kiosk.css';
 
-class StoreEmployee extends Component {
+class Kiosk extends Component {
     // initial state
     state = {
         scanResult : ""
@@ -22,6 +23,9 @@ class StoreEmployee extends Component {
     }
     // render the page
     render() {
+        if ( this.state.scanResult !== "" ) {
+            return <Redirect to={`/info/${this.state.scanResult}`} />
+        }
         return (
         <div id="kiosk">
             <h1>CryptoSNAP Store Kiosk</h1>
@@ -31,10 +35,9 @@ class StoreEmployee extends Component {
                 onScan={this.handleScan}
                 style={{ width: '100%' }}
             />
-            <p>{this.state.scanResult}</p>
         </div>
         )
     }
 }
 
-export default StoreEmployee
+export default Kiosk
