@@ -5,8 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField'
 
-
-
 class Info extends Component {
     state = {
         price:"",
